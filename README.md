@@ -128,7 +128,7 @@ The application is structured into modular pipeline layers:
      ```
    - Open `.env` and add your Gemini API Key:
      ```env
-     GOOGLE_API_KEY=your_actual_gemini_api_key_here
+     GOOGLE_API_KEY=AQ.Ab8RN6Kqo2zc-H7NPo5iEresc1DkS8_x7twksd7JtOcIbWw-fw
      ```
 
 5. **Place the dataset**:
