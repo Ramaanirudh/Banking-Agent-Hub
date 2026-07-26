@@ -78,10 +78,12 @@ Available Intents and Tools:
 
 3. intent: "aggregate_stat"
    - Match this when the user asks for statistical calculations across segments or the full base.
+   - ALSO match this if the user asks to "summarize the dataset" or for a "full summary".
    - Parameters:
      - "group_col": string (default "Cluster").
      - "agg_col": string. Choose one of: "MonetaryAvg" (for transaction sizes), "AvgAccountBalance" (for account balances), "Frequency" (for transaction counts).
-     - "agg_func": string. Choose one of: "mean", "count", "percentage", "sum".
+     - "agg_func": string. Choose one of: "mean", "count", "percentage", "sum", "summary".
+       - Use "summary" for: "summarize", "full summary".
        - Use "sum" for: "total", "sum of", "combined", "aggregate balance", "total portfolio balance", "total held by".
        - Use "count" for: "how many", "number of", "count".
        - Use "percentage" for: "what percent", "what share", "proportion".
@@ -223,14 +225,16 @@ JSON Response:
             return {"intent": "eda", "parameters": {}, "clarification_question": None}
 
         # 3. Check for statistical aggregation
-        if any(k in q_lower for k in ["average", "mean", "sum", "total", "how many", "percentage", "compare", "count"]):
+        if re.search(r'\b(average|mean|sum|total|how many|percentage|percent|compare|count|summarize|summary)\b', q_lower):
             agg_func = "mean"
-            if "how many" in q_lower or "count" in q_lower:
+            if re.search(r'\b(how many|count)\b', q_lower):
                 agg_func = "count"
-            elif "percentage" in q_lower or "percent" in q_lower:
+            elif re.search(r'\b(percentage|percent)\b', q_lower):
                 agg_func = "percentage"
-            elif "total" in q_lower or "sum" in q_lower:
+            elif re.search(r'\b(total|sum)\b', q_lower):
                 agg_func = "sum"
+            elif re.search(r'\b(summarize|summary)\b', q_lower):
+                agg_func = "summary"
                 
             agg_col = "MonetaryAvg"
             if "balance" in q_lower:

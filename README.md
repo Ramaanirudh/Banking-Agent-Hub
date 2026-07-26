@@ -2,6 +2,9 @@
 
 An agentic AI and machine learning pipeline for retail banking customer segmentation, segment explainability, and personalized marketing recommendations. Built for a 48-hour hackathon.
 
+## 🔗 Live App
+[Streamlit App Link](https://your-app-name.streamlit.app) -- placeholder, to be updated
+
 ---
 
 ## 📋 Problem Statement
@@ -43,7 +46,9 @@ The application is structured into modular pipeline layers:
                                       ▼
 ┌───────────────────────────────────────────────────────────────────────────┐
 │                      Agent Loop (Gemini Router)                           │
-│ - Identifies intent: segmentation, explainability, or recommendation.     │
+│ - Identifies intent: segmentation, explain_rule, aggregate_stat,          │
+│   entity_lookup, entity_list, recommendation, conversion_candidates,      │
+│   eda, out_of_scope, clarification_needed.                                │
 │ - Creates a selective tool-execution plan (skips unnecessary tools).      │
 └─────────────────────────────────────┬─────────────────────────────────────┘
                                       │ Selective trigger
@@ -96,7 +101,8 @@ The application is structured into modular pipeline layers:
 
 1. **Clone or navigate** to the project directory:
    ```bash
-   cd "c:/Users/palch/one drive/Desktop/Downloads/hackthon for sg"
+   git clone https://github.com/Ramaanirudh/Banking-Agent-Hub
+   cd Banking-Agent-Hub
    ```
 
 2. **Create and activate** a virtual environment:
@@ -190,4 +196,11 @@ Our diagnostics show that the size gap is driven by a **recency bottleneck**:
 *   **90th percentile**: 203,635.98 INR
 *   **95th percentile**: 416,930.42 INR
 *   **100th percentile (Max)**: 115,035,495.10 INR
+
+---
+
+## 🤖 AI Tools & Assistance Disclosed
+
+- Antigravity (Google's agentic coding IDE) was used for code generation, debugging, and iterative development throughout this project.
+- Google Gemini 2.5 Flash is used at runtime within the application for query intent routing and response synthesis (see `agent/router.py`, `agent/synthesizer.py`).
 

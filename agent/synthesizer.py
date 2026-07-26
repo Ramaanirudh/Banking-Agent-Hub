@@ -163,6 +163,22 @@ def generate_decisive_fallback(query: str, tool_output: str) -> str:
                     md += f"- **{seg}**: **{float(val):,.2f} INR**\n"
                 return md
 
+            # SUMMARY queries
+            if agg_func == 'summary' or 'summarize' in q_lower:
+                total = stats.get('total_customers', 0)
+                kmeans = stats.get('kmeans_counts', {})
+                rules = stats.get('rule_counts', {})
+                priority_cid = stats.get('priority_cluster_id', 0)
+                md = f"### Full Dataset Summary\n\n**Total Customers**: {total:,}\n\n"
+                md += "**KMeans Clusters**:\n"
+                for k, v in kmeans.items():
+                    k_str = "Priority" if str(k) == str(priority_cid) else "Standard/Inactive"
+                    md += f"- Cluster {k} ({k_str}): {v:,} ({v/total*100:.2f}%)\n"
+                md += "\n**Rule-Based Segments**:\n"
+                for k, v in rules.items():
+                    md += f"- {k}: {v:,} ({v/total*100:.2f}%)\n"
+                return md
+
         except Exception:
             pass
 
