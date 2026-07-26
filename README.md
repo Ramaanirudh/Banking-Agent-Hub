@@ -3,7 +3,7 @@
 An agentic AI and machine learning pipeline for retail banking customer segmentation, segment explainability, and personalized marketing recommendations. Built for a 48-hour hackathon.
 
 ## 🔗 Live App
-[Streamlit App Link](https://your-app-name.streamlit.app) -- placeholder, to be updated
+[Streamlit App Link](https://ramaanirudh-banking-agent-hub-app-tuepas.streamlit.app/) -- placeholder, to be updated
 
 ---
 
