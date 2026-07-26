@@ -60,6 +60,8 @@ The application is structured into modular pipeline layers:
 │ 2. Explainability Tool: Compares group centroids and extracts human-      │
 │    readable decision rules using a Decision Tree surrogate (depth=3).     │
 │ 3. Recommendation Tool: Dynamic offerings mapping + near-priority finder. │
+│ 4. Stats & Lookup Tool: Aggregates portfolio metrics and queries entities.│
+│ 5. EDA Tool: Provides high-level exploratory data summaries.              │
 └─────────────────────────────────────┬─────────────────────────────────────┘
                                       │ Tool outputs
                                       ▼
