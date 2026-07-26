@@ -3,6 +3,9 @@ import pandas as pd
 import os
 import sys
 
+# Hardcoded API key as requested for deployment
+os.environ["GOOGLE_API_KEY"] = "AQ.Ab8RN6Kqo2zc-H7NPo5iEresc1DkS8_x7twksd7JtOcIbWw-fw"
+
 # Ensure tools and agent directories are in import path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'tools')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'agent')))
